@@ -310,7 +310,7 @@ class FlutterLogin extends StatefulWidget {
         logo = logo is String ? AssetImage(logo) : logo,
         super(key: key);
 
-bool rememberMe;
+  final bool rememberMe;
   /// Called when the user hit the submit button when in sign up mode
   ///
   /// Can be null to disable signup.
