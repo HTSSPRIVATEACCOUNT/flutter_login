@@ -322,6 +322,7 @@ class AuthCardState extends State<AuthCard> with TickerProviderStateMixin {
         return _buildLoadingAnimator(
           theme: Theme.of(context),
           child: _LoginCard(
+            rememberMe: widget.rememberMe,
             key: _loginCardKey,
             userType: widget.userType,
             loadingController: formController,

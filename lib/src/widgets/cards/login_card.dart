@@ -650,6 +650,9 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
                 const SizedBox(height: 20),
                 _buildPasswordField(textFieldWidth, messages, auth),
                 const SizedBox(height: 10),
+                 // const SizedBox(height: 20),
+                        _buildRememberMeField(),    
+                const SizedBox(height: 10),
               ],
             ),
           ),
@@ -699,9 +702,7 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
                     ? _buildProvidersTitleFirst(messages)
                     : Container(),
                 _buildProvidersLogInButton(theme, messages, auth, loginTheme),
-                   // const SizedBox(height: 20),
-                        _buildRememberMeField(),    
-                const SizedBox(height: 10),
+                  
               ],
             ),
           ),
