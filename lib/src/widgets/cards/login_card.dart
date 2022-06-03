@@ -18,8 +18,10 @@ class _LoginCard extends StatefulWidget {
     this.hideSignUpButton = false,
     this.loginAfterSignUp = true,
     this.hideProvidersTitle = false,
+    this.rememberMe = false,
   }) : super(key: key);
 
+  final bool rememberMe;
   final AnimationController loadingController;
   final FormFieldValidator<String>? userValidator;
   final FormFieldValidator<String>? passwordValidator;
@@ -458,6 +460,50 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
   //         );
   //       }).toList());
   // }
+ Widget _buildRememberMeField() {
+  return
+   Padding(
+          padding: EdgeInsets.only(top: 10),
+          child: SizedBox(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+ SizedBox(
+                              width: 4.58,
+                              height: 2.24,
+                              child: Checkbox(
+                                side: MaterialStateBorderSide.resolveWith(
+                                  (states) => BorderSide(
+                                      width: 1.0, color: Colors.black),
+                                ),
+                                activeColor: Colors.transparent,
+                                splashRadius: 10,
+                                value: widget.rememberMe,
+                                onChanged: (value) {
+                                  // setState(() {
+                                  //   rememberMe = !rememberMe;
+                                  // });
+                                },
+                              ),
+                            ),
+                              Padding(
+                              padding: EdgeInsets.only(left: 15.53),
+                              child: Text(
+                                    'Ține-mă minte',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              ),
+
+     
+              ],
+            ),
+          ),
+        );
+  }
 
   Widget _buildProvidersLogInButton(ThemeData theme, LoginMessages messages,
       Auth auth, LoginTheme loginTheme) {
@@ -653,6 +699,9 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
                     ? _buildProvidersTitleFirst(messages)
                     : Container(),
                 _buildProvidersLogInButton(theme, messages, auth, loginTheme),
+                   // const SizedBox(height: 20),
+                        _buildRememberMeField(),    
+                const SizedBox(height: 10),
               ],
             ),
           ),

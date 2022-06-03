@@ -50,6 +50,7 @@ class AuthCard extends StatefulWidget {
       this.disableCustomPageTransformer = false,
       this.loginTheme,
       this.navigateBackAfterRecovery = false,
+      this.rememberMe = false,
       required this.scrollable})
       : super(key: key);
 
@@ -72,6 +73,7 @@ class AuthCard extends StatefulWidget {
   final bool navigateBackAfterRecovery;
 
   final bool scrollable;
+  final bool rememberMe;
 
   @override
   AuthCardState createState() => AuthCardState();

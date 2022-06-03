@@ -304,11 +304,13 @@ class FlutterLogin extends StatefulWidget {
       this.savedPassword = '',
       this.initialAuthMode = AuthMode.login,
       this.children,
-      this.scrollable = false})
+      this.scrollable = false,
+      this.rememberMe = false})
       : assert((logo is String?) || (logo is ImageProvider?)),
         logo = logo is String ? AssetImage(logo) : logo,
         super(key: key);
 
+bool rememberMe;
   /// Called when the user hit the submit button when in sign up mode
   ///
   /// Can be null to disable signup.
@@ -811,6 +813,7 @@ class _FlutterLoginState extends State<FlutterLogin>
                         navigateBackAfterRecovery:
                             widget.navigateBackAfterRecovery,
                         scrollable: widget.scrollable,
+                        rememberMe: widget.rememberMe,
                       ),
                     ),
                     Positioned(
