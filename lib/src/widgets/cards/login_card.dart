@@ -478,7 +478,7 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
                                   (states) => BorderSide(
                                       width: 1.0, color: Colors.black),
                                 ),
-                                activeColor: Colors.transparent,
+                                activeColor: Colors.red,
                                 splashRadius: 10,
                                 value: widget.rememberMe,
                                 onChanged: (value) {
