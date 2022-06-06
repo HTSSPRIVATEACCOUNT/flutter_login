@@ -306,12 +306,13 @@ class FlutterLogin extends StatefulWidget {
       this.children,
       this.scrollable = false,
       this.rememberMe = false,
-      this.onActionClick})
+      // this.onActionClick
+      })
       : assert((logo is String?) || (logo is ImageProvider?)),
         logo = logo is String ? AssetImage(logo) : logo,
         super(key: key);
 
-  final Function(bool)? onActionClick;
+  // final Function(bool)? onActionClick;
   final bool rememberMe;
   /// Called when the user hit the submit button when in sign up mode
   ///
@@ -816,7 +817,7 @@ class _FlutterLoginState extends State<FlutterLogin>
                             widget.navigateBackAfterRecovery,
                         scrollable: widget.scrollable,
                         rememberMe: widget.rememberMe,
-                        onActionClick: widget.onActionClick!,
+                        // onActionClick: widget.onActionClick!,
                       ),
                     ),
                     Positioned(
