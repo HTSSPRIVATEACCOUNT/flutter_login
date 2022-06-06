@@ -471,8 +471,8 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
  SizedBox(
-                              width: 4.58,
-                              height: 2.24,
+                              width: 14.58,
+                              height: 22.24,
                               child: Checkbox(
                                 side: MaterialStateBorderSide.resolveWith(
                                   (states) => BorderSide(

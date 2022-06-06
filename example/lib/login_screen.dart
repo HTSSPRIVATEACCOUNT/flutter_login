@@ -8,11 +8,17 @@ import 'custom_route.dart';
 import 'dashboard_screen.dart';
 import 'users.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   static const routeName = '/auth';
 
   const LoginScreen({Key? key}) : super(key: key);
 
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  bool rememberMe=false;
   Duration get loginTime => Duration(milliseconds: timeDilation.ceil() * 2250);
 
   Future<String?> _loginUser(LoginData data) {
@@ -51,6 +57,13 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlutterLogin(
+      onActionClick: (bool remember){
+        rememberMe=!rememberMe;
+        setState(() {
+          
+        });
+      },
+      rememberMe: rememberMe,
       title: Constants.appName,
       logo: const AssetImage('assets/images/ecorp.png'),
       logoTag: Constants.logoTag,
