@@ -476,7 +476,7 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
                 value: widget.rememberMe,
                 activeColor: Color(0xFF6200EE),
                 onChanged: (value) {
-                  widget.onActionClick(value!);
+                  widget.onActionClick(value);
 
                   setState(() {
                     // rememberMe = !rememberMe;
