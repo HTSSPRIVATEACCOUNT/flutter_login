@@ -1,26 +1,26 @@
 part of auth_card_builder;
 
 class _LoginCard extends StatefulWidget {
-  const _LoginCard({
-    Key? key,
-    required this.loadingController,
-    required this.userValidator,
-    required this.passwordValidator,
-    required this.onSwitchRecoveryPassword,
-    required this.onSwitchSignUpAdditionalData,
-    required this.userType,
-    required this.requireAdditionalSignUpFields,
-    required this.onSwitchConfirmSignup,
-    required this.requireSignUpConfirmation,
-    this.onSwitchAuth,
-    this.onSubmitCompleted,
-    this.hideForgotPasswordButton = false,
-    this.hideSignUpButton = false,
-    this.loginAfterSignUp = true,
-    this.hideProvidersTitle = false,
-    this.rememberMe = false,
-    required this.onActionClick
-  }) : super(key: key);
+  const _LoginCard(
+      {Key? key,
+      required this.loadingController,
+      required this.userValidator,
+      required this.passwordValidator,
+      required this.onSwitchRecoveryPassword,
+      required this.onSwitchSignUpAdditionalData,
+      required this.userType,
+      required this.requireAdditionalSignUpFields,
+      required this.onSwitchConfirmSignup,
+      required this.requireSignUpConfirmation,
+      this.onSwitchAuth,
+      this.onSubmitCompleted,
+      this.hideForgotPasswordButton = false,
+      this.hideSignUpButton = false,
+      this.loginAfterSignUp = true,
+      this.hideProvidersTitle = false,
+      this.rememberMe = false,
+      required this.onActionClick})
+      : super(key: key);
 
   final Function(bool) onActionClick;
   final bool rememberMe;
@@ -462,51 +462,60 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
   //         );
   //       }).toList());
   // }
- Widget _buildRememberMeField() {
-  return
-   Padding(
-          padding: EdgeInsets.only(top: 10),
-          child: SizedBox(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
- SizedBox(
-                              width: 14.58,
-                              height: 22.24,
-                              child: Checkbox(
-                                side: MaterialStateBorderSide.resolveWith(
-                                  (states) => BorderSide(
-                                      width: 1.0, color: Colors.black),
-                                ),
-                                activeColor: Colors.red,
-                                splashRadius: 10,
-                                value: widget.rememberMe,
-                                onChanged: (value) {
-                                  widget.onActionClick(value!);
+  Widget _buildRememberMeField() {
+    return Padding(
+      padding: EdgeInsets.only(top: 10, left: 10),
+      child: SizedBox(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(
+              width: 14.58,
+              height: 22.24,
+              child: Switch(
+                value: widget.rememberMe,
+                activeColor: Color(0xFF6200EE),
+                onChanged: (value) {
+                  widget.onActionClick(value!);
 
-                                  setState(() {
-                                    // rememberMe = !rememberMe;
-                                  });
-                                },
-                              ),
-                            ),
-                              Padding(
-                              padding: EdgeInsets.only(left: 15.53),
-                              child: Text(
-                                    'Ține-mă minte',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              ),
+                  setState(() {
+                    // rememberMe = !rememberMe;
+                  });
+                },
+              ),
 
-     
-              ],
+              //  Checkbox(
+              //   side: MaterialStateBorderSide.resolveWith(
+              //     (states) => BorderSide(
+              //         width: 1.0, color: Colors.black),
+              //   ),
+              //   activeColor: Colors.red,
+              //   splashRadius: 10,
+              //   value: widget.rememberMe,
+              //   onChanged: (value) {
+              //     widget.onActionClick(value!);
+
+              //     setState(() {
+              //       // rememberMe = !rememberMe;
+              //     });
+              //   },
+              // ),
             ),
-          ),
-        );
+            Padding(
+              padding: EdgeInsets.only(left: 15.53),
+              child: Text(
+                'Ține-mă minte',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   Widget _buildProvidersLogInButton(ThemeData theme, LoginMessages messages,
@@ -654,8 +663,8 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
                 const SizedBox(height: 20),
                 _buildPasswordField(textFieldWidth, messages, auth),
                 const SizedBox(height: 10),
-                 // const SizedBox(height: 20),
-                        _buildRememberMeField(),    
+                // const SizedBox(height: 20),
+                _buildRememberMeField(),
                 const SizedBox(height: 10),
               ],
             ),
@@ -706,7 +715,6 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
                     ? _buildProvidersTitleFirst(messages)
                     : Container(),
                 _buildProvidersLogInButton(theme, messages, auth, loginTheme),
-                  
               ],
             ),
           ),
