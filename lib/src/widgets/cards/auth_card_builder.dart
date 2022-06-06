@@ -52,7 +52,7 @@ class AuthCard extends StatefulWidget {
       this.navigateBackAfterRecovery = false,
       this.rememberMe = false,
       required this.scrollable,
-      // required this.onActionClick
+      required this.onActionClick
       })
       : super(key: key);
 
@@ -76,7 +76,7 @@ class AuthCard extends StatefulWidget {
 
   final bool scrollable;
   final bool rememberMe;
-  // final Function(bool) onActionClick;
+  final Function(bool) onActionClick;
 
   @override
   AuthCardState createState() => AuthCardState();
@@ -325,7 +325,7 @@ class AuthCardState extends State<AuthCard> with TickerProviderStateMixin {
         return _buildLoadingAnimator(
           theme: Theme.of(context),
           child: _LoginCard(
-            // onActionClick: widget.onActionClick,
+            onActionClick: widget.onActionClick,
             rememberMe: widget.rememberMe,
             key: _loginCardKey,
             userType: widget.userType,
