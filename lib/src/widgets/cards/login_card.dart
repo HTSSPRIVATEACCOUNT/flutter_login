@@ -19,8 +19,10 @@ class _LoginCard extends StatefulWidget {
     this.loginAfterSignUp = true,
     this.hideProvidersTitle = false,
     this.rememberMe = false,
+    required this.onActionClick
   }) : super(key: key);
 
+  final Function(bool) onActionClick;
   final bool rememberMe;
   final AnimationController loadingController;
   final FormFieldValidator<String>? userValidator;
@@ -480,9 +482,11 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
                                 splashRadius: 10,
                                 value: widget.rememberMe,
                                 onChanged: (value) {
-                                  // setState(() {
-                                  //   rememberMe = !rememberMe;
-                                  // });
+                                  widget.onActionClick(value!);
+
+                                  setState(() {
+                                    // rememberMe = !rememberMe;
+                                  });
                                 },
                               ),
                             ),
