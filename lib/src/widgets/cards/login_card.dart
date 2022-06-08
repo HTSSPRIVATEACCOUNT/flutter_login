@@ -73,6 +73,15 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
 
   bool get buttonEnabled => !_isLoading && !_isSubmitting;
 
+  final kGradientBoxDecoration = BoxDecoration(
+    borderRadius: BorderRadius.circular(20),
+    gradient: const LinearGradient(
+      stops: [0.0, 1],
+      colors: [Color(0xffb6dc0ed), Color(0xffb9ACD32)],
+      tileMode: TileMode.clamp,
+    ),
+  );
+
   @override
   void initState() {
     super.initState();
@@ -399,10 +408,14 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
       ThemeData theme, LoginMessages messages, Auth auth) {
     return ScaleTransition(
       scale: _buttonScaleAnimation,
-      child: AnimatedButton(
-        controller: _submitController,
-        text: auth.isLogin ? messages.loginButton : messages.signupButton,
-        onPressed: () => _submit(),
+      child: Container(
+        padding: EdgeInsets.all(3),
+        decoration: kGradientBoxDecoration,
+        child: AnimatedButton(
+          controller: _submitController,
+          text: auth.isLogin ? messages.loginButton : messages.signupButton,
+          onPressed: () => _submit(),
+        ),
       ),
     );
   }
@@ -464,51 +477,34 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
   // }
   Widget _buildRememberMeField() {
     return Padding(
-      padding: EdgeInsets.only(top: 10, left: 10),
+      padding: EdgeInsets.only(top: 10, right: 15),
       child: SizedBox(
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            SizedBox(
-              width: 14.58,
-              height: 22.24,
-              child: Switch(
-                value: widget.rememberMe,
-                activeColor: Color(0xFF6200EE),
-                onChanged: (value) {
-                  widget.onActionClick(value);
-
-                  setState(() {
-                    // rememberMe = !rememberMe;
-                  });
-                },
+            const Text(
+              'Ține-mă minte',
+              style: TextStyle(
+                color: Color(0xffb6dc0ed),
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
               ),
-
-              //  Checkbox(
-              //   side: MaterialStateBorderSide.resolveWith(
-              //     (states) => BorderSide(
-              //         width: 1.0, color: Colors.black),
-              //   ),
-              //   activeColor: Colors.red,
-              //   splashRadius: 10,
-              //   value: widget.rememberMe,
-              //   onChanged: (value) {
-              //     widget.onActionClick(value!);
-
-              //     setState(() {
-              //       // rememberMe = !rememberMe;
-              //     });
-              //   },
-              // ),
             ),
             Padding(
-              padding: EdgeInsets.only(left: 15.53),
-              child: Text(
-                'Ține-mă minte',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
+              padding: const EdgeInsets.only(left: 15.53),
+              child: SizedBox(
+                width: 14.58,
+                height: 22.24,
+                child: Switch(
+                  value: widget.rememberMe,
+                  activeColor: Color(0xffb6dc0ed),
+                  onChanged: (value) {
+                    widget.onActionClick(value);
+
+                    setState(() {
+                      // rememberMe = !rememberMe;
+                    });
+                  },
                 ),
               ),
             ),
@@ -664,8 +660,7 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
                 _buildPasswordField(textFieldWidth, messages, auth),
                 const SizedBox(height: 10),
                 // const SizedBox(height: 20),
-                if(_showShadow==true)
-                  _buildRememberMeField(),
+                if (_showShadow == true) _buildRememberMeField(),
                 const SizedBox(height: 10),
               ],
             ),
