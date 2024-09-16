@@ -26,32 +26,29 @@ class MyApp extends StatelessWidget {
             const TextSelectionThemeData(cursorColor: Colors.orange),
         // fontFamily: 'SourceSansPro',
         textTheme: TextTheme(
-          headline3: const TextStyle(
+          headlineSmall: const TextStyle(fontFamily: 'Quicksand'),
+          headlineMedium: const TextStyle(fontFamily: 'Quicksand'),
+          headlineLarge: const TextStyle(
             fontFamily: 'OpenSans',
             fontSize: 45.0,
             // fontWeight: FontWeight.w400,
             color: Colors.orange,
           ),
-          button: const TextStyle(
-            // OpenSans is similar to NotoSans but the uppercases look a bit better IMO
-            fontFamily: 'OpenSans',
-          ),
-          caption: TextStyle(
+          labelSmall: const TextStyle(fontFamily: 'NotoSans'),
+          labelMedium: const TextStyle(fontFamily: 'NotoSans'),
+          bodySmall: const TextStyle(fontFamily: 'NotoSans'),
+          bodyMedium: const TextStyle(fontFamily: 'NotoSans'),
+          displaySmall: const TextStyle(fontFamily: 'NotoSans'),
+          displayMedium: TextStyle(
             fontFamily: 'NotoSans',
             fontSize: 12.0,
             fontWeight: FontWeight.normal,
             color: Colors.deepPurple[300],
           ),
-          headline1: const TextStyle(fontFamily: 'Quicksand'),
-          headline2: const TextStyle(fontFamily: 'Quicksand'),
-          headline4: const TextStyle(fontFamily: 'Quicksand'),
-          headline5: const TextStyle(fontFamily: 'NotoSans'),
-          headline6: const TextStyle(fontFamily: 'NotoSans'),
-          subtitle1: const TextStyle(fontFamily: 'NotoSans'),
-          bodyText1: const TextStyle(fontFamily: 'NotoSans'),
-          bodyText2: const TextStyle(fontFamily: 'NotoSans'),
-          subtitle2: const TextStyle(fontFamily: 'NotoSans'),
-          overline: const TextStyle(fontFamily: 'NotoSans'),
+          displayLarge: const TextStyle(
+            // OpenSans is similar to NotoSans but the uppercases look a bit better IMO
+            fontFamily: 'OpenSans',
+          ),
         ),
         colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.deepPurple)
             .copyWith(secondary: Colors.orange),

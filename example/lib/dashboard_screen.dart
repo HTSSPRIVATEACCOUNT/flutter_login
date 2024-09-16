@@ -153,7 +153,7 @@ class _DashboardScreenState extends State<DashboardScreen>
               children: <Widget>[
                 Text(
                   '\$',
-                  style: theme.textTheme.headline3!.copyWith(
+                  style: theme.textTheme.headlineLarge!.copyWith(
                     fontWeight: FontWeight.w300,
                     color: accentColor.shade400,
                   ),
@@ -164,13 +164,13 @@ class _DashboardScreenState extends State<DashboardScreen>
                   targetValue: 3467.87,
                   curve: const Interval(0, .5, curve: Curves.easeOut),
                   controller: _loadingController!,
-                  style: theme.textTheme.headline3!.copyWith(
+                  style: theme.textTheme.headlineLarge!.copyWith(
                     foreground: Paint()..shader = linearGradient,
                   ),
                 ),
               ],
             ),
-            Text('Account Balance', style: theme.textTheme.caption),
+            Text('Account Balance', style: theme.textTheme.displayMedium),
           ],
         ),
       ),

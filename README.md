@@ -365,7 +365,7 @@ class MyApp extends StatelessWidget {
         accentColor: Colors.orange,
         cursorColor: Colors.orange,
         textTheme: TextTheme(
-          headline3: TextStyle(
+          headlineLarge: TextStyle(
             fontFamily: 'OpenSans',
             fontSize: 45.0,
             color: Colors.orange,
@@ -373,8 +373,8 @@ class MyApp extends StatelessWidget {
           button: TextStyle(
             fontFamily: 'OpenSans',
           ),
-          subtitle1: TextStyle(fontFamily: 'NotoSans'),
-          bodyText2: TextStyle(fontFamily: 'NotoSans'),
+          labelSmall: TextStyle(fontFamily: 'NotoSans'),
+          bodyMedium: TextStyle(fontFamily: 'NotoSans'),
         ),
       ),
       home: LoginScreen(),
