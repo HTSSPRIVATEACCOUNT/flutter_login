@@ -480,7 +480,7 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
       padding: EdgeInsets.only(top: 10, right: 15),
       child: SizedBox(
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             const Text(
               'Ține-mă minte',
