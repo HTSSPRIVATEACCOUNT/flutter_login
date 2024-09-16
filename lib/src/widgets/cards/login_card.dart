@@ -480,7 +480,7 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
       padding: EdgeInsets.only(top: 10, right: 15),
       child: SizedBox(
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             const Text(
               'Ține-mă minte',
@@ -498,6 +498,8 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
                 child: Switch(
                   value: widget.rememberMe,
                   activeColor: Color(0xffb6dc0ed),
+                  inactiveThumbColor: Colors.grey,
+                  inactiveTrackColor: Colors.grey[400],
                   onChanged: (value) {
                     widget.onActionClick(value);
 
